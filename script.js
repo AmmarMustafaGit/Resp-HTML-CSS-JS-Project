@@ -97,15 +97,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // -------------------Time-----------
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
     if (window.location.href.includes("index.html") || window.location.href.includes("page-offer.html")) {
-        
+
         function setNewEndTime(days, hours, minutes, seconds) {
             let now = new Date().getTime();
-            let newEndTime = now + 
-                (days * 24 * 60 * 60 * 1000) + 
-                (hours * 60 * 60 * 1000) + 
-                (minutes * 60 * 1000) + 
+            let newEndTime = now +
+                (days * 24 * 60 * 60 * 1000) +
+                (hours * 60 * 60 * 1000) +
+                (minutes * 60 * 1000) +
                 (seconds * 1000);
             localStorage.setItem("countdownEndTime", newEndTime);
             return newEndTime;
@@ -157,7 +157,7 @@ window.onload = function () {
         // Start the countdown
         startCountdown(1, 15, 28, 0);
     }
-};
+});
 
 
 
