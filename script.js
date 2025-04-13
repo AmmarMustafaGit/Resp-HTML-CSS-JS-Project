@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // -------------------Time-----------
-<script>
 window.addEventListener("load", function () {
     const currentPage = window.location.href;
     if (currentPage.includes("index.html") || currentPage.includes("page-offer.html")) {
@@ -159,7 +158,6 @@ window.addEventListener("load", function () {
         startCountdown(1, 15, 28, 0);
     }
 });
-</script>
 
 
 
