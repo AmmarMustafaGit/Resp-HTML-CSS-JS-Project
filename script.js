@@ -97,15 +97,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // -------------------Time-----------
-window.onload = function () {
-    if (window.location.href.includes("index.html") || window.location.href.includes("page-offer.html")) {
-        
+<script>
+window.addEventListener("load", function () {
+    const currentPage = window.location.href;
+    if (currentPage.includes("index.html") || currentPage.includes("page-offer.html")) {
+
         function setNewEndTime(days, hours, minutes, seconds) {
             let now = new Date().getTime();
-            let newEndTime = now + 
-                (days * 24 * 60 * 60 * 1000) + 
-                (hours * 60 * 60 * 1000) + 
-                (minutes * 60 * 1000) + 
+            let newEndTime = now +
+                (days * 24 * 60 * 60 * 1000) +
+                (hours * 60 * 60 * 1000) +
+                (minutes * 60 * 1000) +
                 (seconds * 1000);
             localStorage.setItem("countdownEndTime", newEndTime);
             return newEndTime;
@@ -134,12 +136,11 @@ window.onload = function () {
                 let m = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
                 let s = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-                // Select all countdown elements
                 document.querySelectorAll(".offer").forEach(offer => {
-                    let daysElem = offer.querySelector("#days");
-                    let hoursElem = offer.querySelector("#hours");
-                    let minutesElem = offer.querySelector("#minutes");
-                    let secondsElem = offer.querySelector("#seconds");
+                    let daysElem = offer.querySelector(".days");
+                    let hoursElem = offer.querySelector(".hours");
+                    let minutesElem = offer.querySelector(".minutes");
+                    let secondsElem = offer.querySelector(".seconds");
 
                     if (daysElem && hoursElem && minutesElem && secondsElem) {
                         daysElem.textContent = d;
@@ -154,10 +155,12 @@ window.onload = function () {
             setInterval(updateCountdown, 1000);
         }
 
-        // Start the countdown
+        // Start countdown with 1 day, 15 hours, 28 minutes, 0 seconds
         startCountdown(1, 15, 28, 0);
     }
-};
+});
+</script>
+
 
 
 // Animation on scroll
